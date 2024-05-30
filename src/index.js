@@ -7,10 +7,11 @@ import dotenv from 'dotenv';
 import path from 'path';
 import personasRoutes from './routes/personas.routes.js';
 
-// Load environment variables
-dotenv.config();
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+// Cargar variables de entorno
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -20,24 +21,22 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// Handlebars setup
+// Configuración de Handlebars
 app.engine('.hbs', engine({ extname: '.hbs' }));
 app.set('view engine', '.hbs');
 app.set('views', path.join(path.resolve(), 'src/views'));
 
-// Static files
+// Archivos estáticos
 app.use(express.static(path.join(path.resolve(), 'src/public')));
 
 /* ------------------------------ Public files ------------------------------ */
 
 app.use(express.static(join(__dirname, 'public')))
 
-
-// Routes
+// Rutas
 app.use(personasRoutes);
 
-// Start server
+// Iniciar el servidor
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Servidor en funcionamiento en http://localhost:${PORT}`);
 });
-
