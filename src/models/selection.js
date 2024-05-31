@@ -1,4 +1,4 @@
-import { pool } from '../database.js';
+import { pool } from '../../database.js';
 
 // Obtener las selecciones de servicios junto con la información del cliente
 export const getSelections = async () => {

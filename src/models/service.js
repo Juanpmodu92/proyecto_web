@@ -1,4 +1,4 @@
-import { pool } from '../database.js';
+import { pool } from '../../database.js';
 
 // Obtener todos los servicios
 export const getServices = async () => {
