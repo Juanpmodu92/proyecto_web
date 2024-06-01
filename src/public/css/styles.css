@@ -1,6 +1,14 @@
+:root {
+    --primary: #6209db; 
+    --dark: #000000;
+}
+.bg-violet {
+    background-color: #6209db;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #8a8a8a;
+    font-family: "Poppins", sans-serif;
+    background-color: #e6e6e6;
 }
 
 .card {
@@ -9,4 +17,74 @@ body {
 
 .card:hover {
     transform: scale(1.05);
+}
+
+.navbar {
+    min-height: 90px;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+} 
+.btn-primary:hover {
+    background-color: var(--primary);
+}
+.navbar .btn {
+    padding: .625rem 1.25rem !important;
+}
+
+.text-primary {
+    color: var(--primary) !important;
+}
+
+.content {
+    max-width: 500px;
+}
+
+.bg-primary {
+    background-color: var(--primary) !important;
+}
+
+.poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.poppins-bold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+section {
+    height: 900px;
+}
+
+@media (max-width: 992px) {
+    .navbar {
+        position: relative !important;
+    }
+    section {
+        height: unset;
+    }
+}
+
+.step {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.step::after {
+    content:'';
+    border-right: 1px solid var(--dark);
+    height: 150px;
+    position: absolute;
+    top: 34px;
+    opacity: .2;
+}
+
+.call-to-action {
+    border-radius: 50px;
 }
