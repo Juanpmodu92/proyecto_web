@@ -1,7 +1,6 @@
 // src/controllers/personasController.js
 import { getContacts } from '../models/contact.js';
 import { getServices } from '../models/service.js';
-import { getSelections, addSelection } from '../models/selection.js';
 
 // Renderizar la página principal
 export const renderHomePage = (req, res) => {
@@ -29,17 +28,4 @@ export const handleContactForm = async (req, res) => {
 export const renderServicesPage = async (req, res) => {
   const services = await getServices();
   res.render('personas/services', { title: 'Servicios', services });
-};
-
-// Renderizar la página de selecciones de servicios
-export const renderSelectionsPage = async (req, res) => {
-  const selections = await getSelections();
-  res.render('personas/selections', { title: 'Selecciones', selections });
-};
-
-// Manejar el formulario de selección de servicios
-export const handleServiceSelection = async (req, res) => {
-  const { customerName, customerEmail, serviceId } = req.body;
-  await addSelection(customerName, customerEmail, serviceId);
-  res.redirect('/services');
 };
