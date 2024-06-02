@@ -1,6 +1,7 @@
 // src/controllers/personasController.js
-import { getContacts } from '../models/contact.js';
+import { getContacts, saveContact } from '../models/contact.js';
 import { getServices } from '../models/service.js';
+
 
 // Renderizar la página principal
 export const renderHomePage = (req, res) => {
@@ -20,7 +21,7 @@ export const renderContactPage = async (req, res) => {
 // Manejar el envío del formulario de contacto
 export const handleContactForm = async (req, res) => {
   const { name, email, message } = req.body;
-  await addContact(name, email, message);
+  await saveContact(name, email, message);
   res.redirect('/contact');
 };
 

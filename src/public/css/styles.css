@@ -1,6 +1,7 @@
 :root {
     --primary: #6209db; 
     --dark: #000000;
+    --gray: #e6e6e6;
 }
 .bg-violet {
     background-color: #6209db;
@@ -39,12 +40,21 @@ body {
 }
 
 .content {
-    max-width: 500px;
+    max-width: 600px;
+}
+
+.content-2 {
+    max-width: 700px;
 }
 
 .bg-primary {
     background-color: var(--primary) !important;
 }
+
+.bg-gray {
+    background-color: var(--gray) !important;
+}
+
 
 .poppins-regular {
     font-family: "Poppins", sans-serif;
@@ -79,7 +89,20 @@ section {
 .step::after {
     content:'';
     border-right: 1px solid var(--dark);
-    height: 150px;
+    height: 120px;
+    position: absolute;
+    top: 34px;
+    opacity: .2;
+}
+.step-2 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.step-2::after {
+    content:'';
+    border-right: 1px solid var(--dark);
+    height: 400px;
     position: absolute;
     top: 34px;
     opacity: .2;
@@ -87,4 +110,10 @@ section {
 
 .call-to-action {
     border-radius: 50px;
+}
+
+footer {
+    background-color: transparent;
+    text-align: center;
+    padding: 2%;
 }
