@@ -5,7 +5,7 @@ import {fileURLToPath} from 'url'
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 import path from 'path';
-import personasRoutes from './routes/personas.routes.js';
+import { router as personasRoutes } from './routes/personas.routes.js';
 
 // Load environment variables
 dotenv.config();

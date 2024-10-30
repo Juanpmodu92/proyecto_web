@@ -14,6 +14,16 @@ export const renderContactPage = async (req, res) => {
   res.render('personas/contact', { title: 'Contact Us', contacts });
 };
 
+// Define la función para manejar el formulario de contacto
+export const handleContactForm = async (req, res) => {
+  const { name, email, message } = req.body; // Suponiendo que el formulario envía estos datos
+  // Aquí puedes agregar la lógica para procesar el formulario
+  // Por ejemplo, guardarlo en la base de datos o enviar un correo electrónico
+  
+  // Redirigir o renderizar una página después de manejar el formulario
+  res.redirect('/contact'); // O renderizar otra página
+};
+
 export const renderServicesPage = async (req, res) => {
   const services = await getServices();
   res.render('personas/services', { title: 'Our Services', services });
