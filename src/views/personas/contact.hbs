@@ -1,24 +1,22 @@
-{{! src/views/personas/contact.hbs }}
-{{#> layout}}
+{{#> main}}
+<section class="d-flex py-5">
 <div class="container mt-5">
-  <h1>Contact Us</h1>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Phone</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each contacts}}
-        <tr>
-          <td>{{this.name}}</td>
-          <td>{{this.email}}</td>
-          <td>{{this.phone}}</td>
-        </tr>
-      {{/each}}
-    </tbody>
-  </table>
+  <h1 class="display-4 fw-bold">Contacto</h1>
+  <form action="/contact" method="POST">
+    <div class="mb-3">
+      <label for="name" class="form-label fw-bold">Nombre</label>
+      <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label fw-bold">Correo electrónico</label>
+      <input type="email" class="form-control" id="email" name="email" required>
+    </div>
+    <div class="mb-3">
+      <label for="message" class="form-label fw-bold">Mensaje</label>
+      <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
 </div>
-{{/layout}}
+</section>
+{{/main}}
