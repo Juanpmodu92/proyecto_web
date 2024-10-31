@@ -1,4 +1,3 @@
-// contact.js
 import { pool } from '../database.js';
 
 // Obtener todos los contactos
