@@ -1,18 +1,22 @@
 import pkg from 'pg';
+import dotenv from 'dotenv';
+dotenv.config();
+
 const { Pool } = pkg;
 
-// Base de datos en el servidor
-const pool = new Pool({
+// Configuración para el entorno de producción (servidor)
+const productionPool = new Pool({
   connectionString: process.env.POSTGRES_URL,
-})
+});
 
+// Configuración para el entorno de desarrollo (local)
+const developmentPool = new Pool({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
+  port: 5432,
+});
 
-// Base de dato local
-/*export const pool = new Pool({
-  host: 'localhost',
-  user: 'postgres',   
-  password: '031222', 
-  database: 'consulting_platform', 
-  port: 5432,           
-});*/ 
-
+// Seleccionar la conexión adecuada dependiendo del entorno
+export const pool = process.env.NODE_ENV === 'production' ? productionPool : developmentPool;
