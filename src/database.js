@@ -1,11 +1,18 @@
 import pkg from 'pg';
 const { Pool } = pkg;
 
-// Crear una conexión con la base de datos
-export const pool = new Pool({
+// Base de datos en el servidor
+const pool = new Pool({
+  connectionString: process.env.POSTGRES_URL,
+})
+
+
+// Base de dato local
+/*export const pool = new Pool({
   host: 'localhost',
-  user: 'postgres',       // Reemplaza con tu usuario de PostgreSQL
-  password: '031222', // Reemplaza con tu contraseña de PostgreSQL
-  database: 'consulting_platform', // Reemplaza con el nombre de tu base de datos en PostgreSQL
-  port: 5432,           // Puerto predeterminado de PostgreSQL
-});
+  user: 'postgres',   
+  password: '031222', 
+  database: 'consulting_platform', 
+  port: 5432,           
+});*/ 
+
